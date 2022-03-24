@@ -2,15 +2,11 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { UserRouter } from "./router/user.router";
-import { ConfigServer } from "./config/config";
+import { ConfigServer } from "./config/configServer";
 
 class ServerStartup extends ConfigServer {
     public app: express.Application = express();
-    //private port: number = this.getFromEnvironment<number>("");
-
-    /**
-     *  Inicia el servidor
-     */
+  
     constructor() {
         super();
         this.app.use(express.json());
