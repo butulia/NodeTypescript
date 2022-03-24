@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  nodetypescript_db:
+    image: mysql:5.7
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "8312:3306"
+    environment:
+      MYSQL_DATABASE: nodetypescript_db
+      MYSQL_ROOT_USER: ubutulia
+      MYSQL_USER: ubutulia
+      MYSQL_ROOT_PASSWORD: secretPassword
+      MYSQL_PASSWORD: secretPassword
